@@ -27,45 +27,35 @@ public class test : MonoBehaviour
             Debug.Log(array[i]);
         }
 
+        // Bossクラスの変数を宣言してインスタンスを代入
+        Boss lastboss = new Boss();
+
+        // Magic関数を10回使う。魔法攻撃の関数および残魔法ポイントの関数を呼び出し
+
+        for (int u = 0; u <= 10; u++)
+            {
+                lastboss.MagicAttack();
+            }
     }
 }
 
 public class Boss
 {
     private int mp = 53; // 魔法ポイント
+    private int mup; // 残りの魔法ポイント
 
     //魔法攻撃の関数および残魔法ポイントの関数
     public void MagicAttack()
     {
-        Debug.Log("魔法攻撃をした" );
-    }
-    for (int i = 53; i >= 5; i -= 5)
-    {
-        Debug.Log("残りのMPは" + i);
-    }
-    
-}
+        mup = mp -= 5;
 
-public class test : MonoBehaviour
-{
-    void Start()
-    {
-        // Bossクラスの変数を宣言してインスタンスを代入
-        Boss lastboss = new Boss();
-
-        // 魔法攻撃の関数および残魔法ポイントの関数
-
-        if (i >= 5)
+        if (mup >= 0)
         {
-            lastboss.MagicAttack();
+            Debug.Log("魔法攻撃をした。残りのMPは" + mup);
         }
-        else if (i < 5)
+        else if (mup < 0)
         {
             Debug.Log("MPが足りないため魔法が使えない。");
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
     }
 }
